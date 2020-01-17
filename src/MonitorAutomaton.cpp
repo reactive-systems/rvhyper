@@ -109,7 +109,8 @@ MonitorAutomaton::step(spot::const_twa_graph_ptr &aut,
 bool
 MonitorAutomaton::accepting(spot::const_twa_graph_ptr &aut) {
     for (auto &edge : aut->out(state)) {
-        if (bdd_implies(bddtrue, edge.cond)) {
+        if (edge.dst == state && bdd_implies(bddtrue, edge.cond)) {
+            // self-loop with True as guard
             return !rejecting(aut);
         }
     }
