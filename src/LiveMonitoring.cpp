@@ -30,7 +30,7 @@ void
 LiveMonitoring::initSession() {
     session_c++;
     if (FLAG_VERBOSE) {
-        std::cout << "session " << session_c << std::endl;
+        std::cout << "Session " << session_c << ":" << std::endl;
     }
 
     eventTrie = eventTrie->root();
@@ -44,9 +44,10 @@ LiveMonitoring::monitorEvent(Event &event) {
         needToInstantiate = false;
     }
     if (FLAG_VERBOSE) {
-        std::cout << "check position " << (eventTrie->depth() + 1)
+        std::cout << "Check position " << (eventTrie->depth() + 1)
                   << " (monitor instances left: " << mas.size() << ")"
                   << std::endl;
+        std::cout << "Event: " << event << std::endl;
     }
     event.restrictProperties(mat.aps);
     eventTrie = eventTrie->addValue(session_c, event);

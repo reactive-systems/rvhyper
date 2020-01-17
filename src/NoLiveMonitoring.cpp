@@ -36,7 +36,7 @@ NoLiveMonitoring::monitor(std::vector<Trace *> &traces) {
     while (!mas.empty()) {
         if (FLAG_VERBOSE) {
             position++;
-            std::cout << "check position " << position
+            std::cout << "Check position " << position
                       << " (monitor instances left: " << mas.size() << ")"
                       << std::endl;
         }
@@ -61,7 +61,7 @@ NoLiveMonitoring::monitor(Trace *trace) {
     while (!mas.empty()) {
         if (FLAG_VERBOSE) {
             position++;
-            std::cout << "check position " << position
+            std::cout << "Check position " << position
                       << " (monitor instances left: " << mas.size() << ")"
                       << std::endl;
         }

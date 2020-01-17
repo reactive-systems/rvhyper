@@ -281,7 +281,7 @@ main(int argc, char *const argv[]) {
         for (size_t i = 0; i < trace_files.size(); i++) {
             FileTrace t(i + 1, trace_files[i]);
             if (FLAG_VERBOSE) {
-                std::cout << "process " << t.name() << "..." << std::endl;
+                std::cout << "Process " << t.name() << std::endl;
             }
             m.initSession();
             while (t.next()) {
