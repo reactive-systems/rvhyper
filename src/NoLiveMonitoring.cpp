@@ -79,14 +79,14 @@ NoLiveMonitoring::monitor(Trace *trace) {
 
 bool
 NoLiveMonitoring::buildTrieLVL(Trie *&trie, Trace *trace) {
-    bool added = false;
-    if (trace->next()) {
-        auto &e = trace->currentEvent();
-        e.restrictProperties(mat.aps);
-        trie = trie->addValue(trace->getId(), e);
-        added = true;
+    if (!trace->next()) {
+        return false;
     }
-    return added;
+    auto &e = trace->currentEvent();
+    std::cout << trace->name() << " Event: " << e << std::endl;
+    e.restrictProperties(mat.aps);
+    trie = trie->addValue(trace->getId(), e);
+    return true;
 }
 
 bool
