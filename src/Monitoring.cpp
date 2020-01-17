@@ -86,8 +86,6 @@ Monitoring::forkAutomata(std::list<MonitorAutomaton *> &mas,
         n_alternatives.clear();
         auto &tries = ma->tries;
         bool equal = tries.size() == 2 && tries[0] == tries[1];
-        if (equal)
-            tries.front()->state = ma->state;
         bool one = true;
         for (auto t : tries) {
             if (t->isLeaf()) {

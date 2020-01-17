@@ -60,8 +60,9 @@ void
 MonitorAutomaton::step(spot::const_twa_graph_ptr &aut,
                        std::vector<std::string> &trace_vars,
                        std::set<std::string> &aps_set, long &nTransitions) {
-    if (tries[0] == tries[1] && tries[0]->state != -1) {
-        state = tries[1]->state;
+    bool equal = tries.size() == 2 && tries[0] == tries[1];
+    if (equal && tries[0]->state != -1) {
+        state = tries[0]->state;
         return;
     }
     nTransitions++;
@@ -96,6 +97,9 @@ MonitorAutomaton::step(spot::const_twa_graph_ptr &aut,
                           << edge.dst << std::endl;
             }
             state = edge.dst;
+            if (equal) {
+                tries[0]->state = state;
+            }
             return;
         }
     }
