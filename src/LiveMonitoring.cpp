@@ -65,8 +65,6 @@ LiveMonitoring::terminateSession() {
     for (auto ma : mas)
         delete ma;
     mas.clear();
-
-    auto path = eventTrie->getPath();
 }
 
 void
