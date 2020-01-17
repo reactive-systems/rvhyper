@@ -94,7 +94,7 @@ NoLiveMonitoring::buildTrieLVL(std::vector<Trie *> &tries,
                                std::vector<Trace *> &traces) {
     bool added = false;
     for (size_t i = 0; i < traces.size(); i++) {
-        added = buildTrieLVL(tries[i], traces[i]);
+        added |= buildTrieLVL(tries[i], traces[i]);
     }
     return added;
 }
