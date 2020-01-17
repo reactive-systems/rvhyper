@@ -80,7 +80,7 @@ print_licence_notice() {
 
 static void
 print_version() {
-    printf("RVHyper v0.2.2  (May 30, 2018)\n\n");
+    printf("RVHyper v0.2.3  (Jan 17, 2020)\n\n");
 
     print_licence_notice();
 
